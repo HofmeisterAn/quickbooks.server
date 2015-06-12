@@ -1,0 +1,2 @@
+# QuickBooks Server
+This small sample provides a Windows Communication Foundation (WCF) SOAP server to communicate with the QuickBooks Web Connector proxy. Currently. it's only a basic implementation and shows the contract between both parts.
