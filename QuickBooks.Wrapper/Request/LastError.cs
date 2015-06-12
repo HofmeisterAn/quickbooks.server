@@ -4,8 +4,8 @@ using System.Text;
 
 namespace QuickBooks.Wrapper.Request
 {
-    [DataContract(Name = "lastError")]
-    [MessageContract(WrapperName = "lastError", IsWrapped = true)]
+    [DataContract(Name = "getLastError")]
+    [MessageContract(WrapperName = "getLastError", IsWrapped = true)]
     public class LastError
     {
         [DataMember(Name = "ticket", IsRequired = true)]
