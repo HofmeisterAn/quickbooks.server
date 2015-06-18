@@ -83,7 +83,6 @@
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="Soap\ArrayOfString.cs" />
-    <Compile Include="Core\UTF8StringWriter.cs" />
     <Compile Include="Entity\CustomerRet.cs" />
     <Compile Include="Entity\CustomerRq.cs" />
     <Compile Include="Entity\QBBaseEntity.cs" />

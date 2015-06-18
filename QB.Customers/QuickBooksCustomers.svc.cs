@@ -15,8 +15,9 @@ namespace QB.Customers
         {
             var result = XmlSerializer<CustomerRet>.Deserialize(receiveXml.Response);
 
-            System.Diagnostics.Debug.WriteLine(result.ElementAt(0).ListID);
-            System.Diagnostics.Debug.WriteLine(result.ElementAt(1).ListID);
+            System.Diagnostics.Debug.WriteLine(result.Length);
+            System.Diagnostics.Debug.WriteLine(result.ElementAt(0).ListID, result.ElementAt(0).Name);
+            System.Diagnostics.Debug.WriteLine(result.ElementAt(1).ListID, result.ElementAt(1).Name);
 
             return new ReceiveXMLResponse
             {
@@ -27,11 +28,14 @@ namespace QB.Customers
         public override RequestXMLResponse SendRequestXML(RequestXML requestXml)
         {
             var customerRq = new CustomerRq();
-            customerRq.MaxReturned = 10;
+            customerRq.MaxReturned = 4;
             customerRq.Ticket = requestXml.Ticket;
 
+            var customer = Builder.Customer;
+            
             return new RequestXMLResponse
             {
+                //RequestXMLResult = XmlSerializer<Customer>.Serialize(customer)
                 RequestXMLResult = XmlSerializer<CustomerRq>.Serialize(customerRq)
             };
         }

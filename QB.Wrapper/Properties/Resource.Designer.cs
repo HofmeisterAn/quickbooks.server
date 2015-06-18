@@ -62,7 +62,7 @@ namespace QB.Wrapper.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
-        ///  &lt;xsl:output method=&quot;xml&quot; encoding=&quot;utf-8&quot; /&gt;
+        ///  &lt;xsl:output method=&quot;xml&quot; encoding=&quot;us-ascii&quot; /&gt;
         ///  
         ///  &lt;xsl:param name=&quot;RequestRq&quot; /&gt;
         ///  &lt;xsl:param name=&quot;RequestId&quot; /&gt;
@@ -73,7 +73,7 @@ namespace QB.Wrapper.Properties {
         ///      &lt;QBXMLMsgsRq onError=&quot;stopOnError&quot;&gt;
         ///        &lt;xsl:element name=&quot;{$RequestRq}&quot;&gt;
         ///          &lt;xsl:attribute name=&quot;requestID&quot;&gt;
-        ///            &lt;xsl:value-of select=&quot;$RequestI [rest of string was truncated]&quot;;.
+        ///            &lt;xsl:value-of select=&quot;$Reque [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string QB {
             get {

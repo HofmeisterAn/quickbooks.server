@@ -21,10 +21,10 @@ namespace QB.Wrapper.Core
             {
                 return new XmlWriterSettings
                 {
-                    NewLineHandling = NewLineHandling.Entitize,
+                    NewLineChars = Environment.NewLine,
                     Indent = true,
                     IndentChars = "\t",
-                    Encoding = new UTF8Encoding(false, false)
+                    Encoding = new ASCIIEncoding()
                 };
             }
         }
@@ -68,7 +68,7 @@ namespace QB.Wrapper.Core
             var xmlSerializer = new XmlSerializer(typeof(T));
             
             var result = XDocument.Parse(source).Descendants(type.TypeName);
-            
+
             try
             {
                 return result.Select(ds => (T) xmlSerializer.Deserialize(ds.CreateReader())).ToArray();
@@ -86,41 +86,35 @@ namespace QB.Wrapper.Core
                 throw new ArgumentNullException("source", "Object to serialize cannot be null.");
             }
 
-            var xml = string.Empty;
-
-            using (var sw1 = new UTF8StringWriter())
+            using (var ms = new MemoryStream())
             {
-                var xw1 = XmlWriter.Create(sw1);
+                var xw = XmlWriter.Create(ms, settings);
 
                 var xmlSerializer = new XmlSerializer(typeof(T));
-                xmlSerializer.Serialize(xw1, source, namespaces);
+                xmlSerializer.Serialize(xw, source, namespaces);
 
-                xml = sw1.ToString();
-            }
+                ms.Position = 0;
 
-            using (var sr = new StringReader(xml))
-            {
-                using (var xr = XmlReader.Create(sr))
+                var xr = XDocument.Load(ms).CreateReader();
+
+                ms.Position = 0;
+                ms.SetLength(0);
+                
+                xw = XmlWriter.Create(ms, settings);
+
+                if (source.IsRequest)
                 {
-                    using (var sw2 = new UTF8StringWriter())
-                    {
-                        if (source.IsRequest)
-                        {
-                            xr.ReadToDescendant(source.TypeName);
-                            xr.Read();                            
-                        }
-
-                        var xw2 = XmlWriter.Create(sw2, settings);
-
-                        var argsList = new XsltArgumentList();
-                        argsList.AddParam(source.RequestRq, string.Empty, source.Method);
-                        argsList.AddParam(source.RequestId, string.Empty, source.Ticket);
-                        
-                        XslCompiledTransform.Transform(xr, argsList, xw2);
-
-                        return sw2.ToString();
-                    }    
+                    xr.ReadToDescendant(source.TypeName);
+                    xr.Read();
                 }
+
+                var argsList = new XsltArgumentList();
+                argsList.AddParam(source.RequestRq, string.Empty, source.Method);
+                argsList.AddParam(source.RequestId, string.Empty, source.Ticket);
+
+                XslCompiledTransform.Transform(xr, argsList, xw);
+
+                return Encoding.ASCII.GetString(ms.ToArray());
             }
         }
     }

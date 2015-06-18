@@ -10,7 +10,7 @@ namespace QB.Wrapper.Core
             {
                 return new Customer
                 {
-                    Name = "University of North Carolina",
+                    Name = "University of North Carolina (ÄÜÖß)",
                     CompanyName = "University of North Carolina",
                     FirstName = "Keith",
                     LastName = "Palmer",
