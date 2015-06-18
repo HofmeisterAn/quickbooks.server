@@ -8,7 +8,7 @@ namespace QB.Wrapper
     [ServiceBehavior(Namespace = URL)]
     public class QuickBooks : IQuickBooks
     {
-        private const string COMPANY_FILE = @"C:\Users\hofmeister\Desktop\QuickBooks\BodyToning.QBW";
+        private const string COMPANY_FILE = @"C:\File\To\QuickBooks\Database.QBW";
 
         public const string URL = "http://developer.intuit.com/";
 
