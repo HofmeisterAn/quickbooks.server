@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBooks.Wrapper", "QuickBooks.Wrapper\QuickBooks.Wrapper.csproj", "{7488D2A1-279A-4F7E-8714-F2568E0E67A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QB.Wrapper", "QB.Wrapper\QB.Wrapper.csproj", "{7488D2A1-279A-4F7E-8714-F2568E0E67A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QB.Customers", "QB.Customers\QB.Customers.csproj", "{1D0E7EF3-5BB2-495E-AD63-C1FD42F6376B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7488D2A1-279A-4F7E-8714-F2568E0E67A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7488D2A1-279A-4F7E-8714-F2568E0E67A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7488D2A1-279A-4F7E-8714-F2568E0E67A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D0E7EF3-5BB2-495E-AD63-C1FD42F6376B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D0E7EF3-5BB2-495E-AD63-C1FD42F6376B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D0E7EF3-5BB2-495E-AD63-C1FD42F6376B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D0E7EF3-5BB2-495E-AD63-C1FD42F6376B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
